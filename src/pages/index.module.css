@@ -1,23 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /**
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.welcome_intro {
+	width: 40vw;
+	padding: 3rem 5rem 0 0;
+}
+.welcome_intro p {
+	font-size: 1.5rem;
+}
+
+.welcome_svg img {
+	height: 30vw;
+	padding-top: 1rem;
+}
+
+.hero_title {
+	font-size: calc((100vw / 150) + 36px);
+	text-align: left;
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	.hero_title {
+		font-size: 1.8rem;
+		text-align: center;
+	}
+	.welcome_svg img {
+		width: 50vh;
+		height: 30vh;
+	}
+	.welcome_intro {
+		width: auto;
+		padding: 3rem 3rem 0;
+	}
+	.welcome_intro p {
+		font-size: 1.2rem;
+	}
 }

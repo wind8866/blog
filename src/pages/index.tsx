@@ -1,41 +1,51 @@
-import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import React from 'react'
+import Layout from '@theme/Layout'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import styles from './index.module.css'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+import Head from '@docusaurus/Head'
 
-import styles from './index.module.css';
+const welcome = ' ~ 欢迎到小屋小憩☕️'
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
+	const { siteConfig } = useDocusaurusContext()
+	console.log(siteConfig)
+	return (
+		<div
+			className="hero"
+			style={{ height: 'calc(100vh - 150px)', margin: 'auto' }}
+		>
+			<div className={styles.welcome_intro}>
+				<h1 className={styles.hero_title}>
+					<span style={{ color: 'var(--ifm-color-primary)' }}>
+						{siteConfig.title}
+					</span>
+					<small style={{ fontSize: '18px', color: '#999' }}>{welcome}</small>
+				</h1>
+				<p className="hero__subtitle">{siteConfig.tagline}</p>
+			</div>
+			<div className={styles.welcome_svg}>
+				<img src="https://meoo.space/img/program.svg" />
+			</div>
+		</div>
+	)
 }
 
-export default function Home(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
-  );
+export default function Home() {
+	const { siteConfig } = useDocusaurusContext()
+	return (
+		<Layout description={siteConfig.tagline}>
+			<Head>
+				<title>
+					{siteConfig.title}
+					{welcome}
+				</title>
+			</Head>
+			<HomepageHeader />
+			<main>
+				<br />
+				{/* <HomepageFeatures /> */}
+			</main>
+		</Layout>
+	)
 }
